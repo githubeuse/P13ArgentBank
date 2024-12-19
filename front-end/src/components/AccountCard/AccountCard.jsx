@@ -1,4 +1,5 @@
 import React from "react";
+import "./accountCard.css";
 
 const AccountCard = ({ title, amount, description }) => {
   return (

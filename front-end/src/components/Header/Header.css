@@ -1,6 +1,5 @@
 header {
   background-color: #fff;
-  border-bottom: 2px solid #ccc;
   padding: 20px 40px;
   color: black;
 }
@@ -17,11 +16,11 @@ header {
   color: #2c3e50;
 }
 
-.main-nav a.router-link-exact-active {
+/* .main-nav a.router-link-exact-active {
   color: #42b983;
-}
+} */
 
-.main-nav-logo {
+.logo {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -29,7 +28,7 @@ header {
   font-family: "Arial", sans-serif;
 }
 
-.main-nav-logo h1 {
+.logo h1 {
   font-size: 1.5em;
   letter-spacing: 0.2px;
 }
@@ -41,16 +40,18 @@ header {
 .second-word-logo {
   color: #055f3c;
 }
-.main-nav-item {
+.sign-in,
+.user-button {
   text-decoration: none;
   margin-right: 0.5rem;
 }
 
-.main-nav-item:hover {
+.sign-in:hover,
+.user-button:hover {
   text-decoration: underline;
 }
 
-.main-nav-item span {
+.sign-in span {
   color: #2c3e50;
 }
 
@@ -62,6 +63,25 @@ header {
 
 .icon:visited {
   color: #2c3e50;
+}
+
+.header-button {
+  background: none;
+  border: none;
+  color: #2c3e50;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.header-button a {
+  text-decoration: none;
+}
+
+.header-button:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {

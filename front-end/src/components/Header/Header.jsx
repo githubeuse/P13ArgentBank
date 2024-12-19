@@ -1,23 +1,47 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { logout } from "../../features/signIn/signInSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.signIn.token);
+  const user = useSelector((state) => state.profile.user);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    localStorage.removeItem("token");
+  };
+
   return (
     <header>
       <nav className="main-nav">
-        <Link className="main-nav-logo" to="/">
+        <Link className="logo" to="/">
           <h1>
             <span className="first-word-logo">ARGENT</span>
             <span className="second-word-logo">BANK</span>
           </h1>
         </Link>
-        <div>
-          <Link className="main-nav-item" to="/sign-in">
+        {token && user ? (
+          <div>
+            <Link to="/profile" className="user-button">
+              <i className="fa fa-user-circle sign-in-icon"></i>
+              {user.firstName || "User"}
+            </Link>
+            {/* <Link to="/login"> */}
+            <button onClick={handleLogout} className="header-button">
+              <i className="fa fa-sign-out"></i>
+              Sign Out
+            </button>
+            {/* </Link> */}
+          </div>
+        ) : (
+          <Link className="sign-in" to="/login">
             <i className="icon fa fa-user-circle"></i>
             <span>Sign In</span>
           </Link>
-        </div>
+        )}
       </nav>
     </header>
   );

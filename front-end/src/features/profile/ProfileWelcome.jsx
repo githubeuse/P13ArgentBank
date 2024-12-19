@@ -1,12 +1,12 @@
 import React from "react";
 
-const UserWelcome = ({ name, onEditName }) => {
+const ProfileWelcome = ({ name, onEditName }) => {
   return (
     <div className="header">
       <h1>
         Welcome back
         <br />
-        {name}!
+        {name || "User"}!
       </h1>
       <button className="edit-button" onClick={onEditName}>
         Edit Name
@@ -15,4 +15,4 @@ const UserWelcome = ({ name, onEditName }) => {
   );
 };
 
-export default UserWelcome;
+export default ProfileWelcome;

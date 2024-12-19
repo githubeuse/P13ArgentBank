@@ -1,3 +1,52 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "favorites.resources": [
+        {
+            "filePath": "front-end\\src\\store.js",
+            "group": "Default"
+        },
+        {
+            "filePath": "front-end\\src\\services\\apiService.js",
+            "group": "Default"
+        },
+        {
+            "filePath": "front-end\\src\\App.js",
+            "group": "Default"
+        },
+        {
+            "filePath": "swagger.yaml",
+            "group": "Default"
+        },
+        {
+            "filePath": "front-end\\src\\store.js",
+            "group": "signin"
+        },
+        {
+            "filePath": "front-end\\src\\store.js",
+            "group": "master"
+        },
+        {
+            "filePath": "front-end\\src\\services\\apiService.js",
+            "group": "master"
+        },
+        {
+            "filePath": "swagger.yaml",
+            "group": "master"
+        },
+        {
+            "filePath": "front-end\\src\\features\\signIn",
+            "group": "master"
+        },
+        {
+            "filePath": "front-end\\src\\features\\profile",
+            "group": "master"
+        }
+    ],
+    "favorites.groups": [
+        "Default",
+        "signin",
+        "master"
+    ],
+    "favorites.currentGroup": "master",
+    "favorites.sortOrder": "ASC"
 }

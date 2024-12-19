@@ -1,16 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import IndexPage from "./pages/IndexPage";
-import SignInPage from "./pages/SignInPage";
-import UserPage from "./pages/UserPage";
+import SignInPage from "./features/signIn/SignInPage";
+import ProfilePage from "./features/profile/ProfilePage";
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<IndexPage />} />
-        <Route path="/sign-in" element={<SignInPage />} />
-        <Route path="/user" element={<UserPage />} />
+        <Route path="/login" element={<SignInPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </Router>
   );
