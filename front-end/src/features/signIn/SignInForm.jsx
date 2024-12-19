@@ -10,7 +10,9 @@ import { signInUser } from "./signInSlice";
 const SignInForm = () => {
   const [email, setEmail] = useState(""); // capture et stocke l'email
   const [password, setPassword] = useState(""); // capture et stocke le mdp
+
   const dispatch = useDispatch(); // pour envoyer les actions au store
+
   const { loading, error } = useSelector((state) => state.signIn); // pour récupérer l'état de loading et les erreurs
 
   // fonction pour le bouton du form
@@ -18,6 +20,7 @@ const SignInForm = () => {
     e.preventDefault();
     localStorage.removeItem("token");
     dispatch(signInUser({ email, password })) // est appelé lors de la soumission du formulaire
+      //load
       .then((data) => {
         console.log("Email:", email);
         console.log("Password:", password);
