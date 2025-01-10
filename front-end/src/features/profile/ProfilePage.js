@@ -6,8 +6,9 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
 import ProfileWelcome from "./ProfileWelcome";
-
 import AccountCard from "../../components/AccountCard/AccountCard";
+
+import { userData, bankName } from "../../data/mockedData";
 
 import "./profile.css";
 
@@ -38,23 +39,18 @@ const ProfilePage = () => {
             name={`${user?.firstName} ${user?.lastName}`}
             onEditName={() => alert("Edit name functionality here")}
           />
+          {/* new */}
           <section className="accounts">
-            <AccountCard
-              title="Argent Bank Checking (x8349)"
-              amount="2,082.79"
-              description="Available Balance"
-            />
-            <AccountCard
-              title="Argent Bank Savings (x6712)"
-              amount="10,928.42"
-              description="Available Balance"
-            />
-            <AccountCard
-              title="Argent Bank Credit Card (x8349)"
-              amount="184.30"
-              description="Current Balance"
-            />
+            {userData.map((account, index) => (
+              <AccountCard
+                key={index}
+                type={`${bankName} ${account.type} (x${account.number}) `}
+                balance={account.balance}
+                description={account.description}
+              />
+            ))}
           </section>
+
         </main>
       </div>
       <Footer />
