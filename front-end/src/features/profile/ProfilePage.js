@@ -1,28 +1,20 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
 import ProfileWelcome from "./ProfileWelcome";
-import { loadUserProfile } from "./profileSlice";
 
 import AccountCard from "../../components/AccountCard/AccountCard";
 
 import "./profile.css";
 
 const ProfilePage = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state) => state.profile);
   const token = useSelector((state) => state.signIn.token);
-
-  useEffect(() => {
-    if (token) {
-      console.log("token utilisé pour charger le profil :", token);
-      dispatch(loadUserProfile(token)); // à enlever
-    }
-  }, [token, dispatch]);
 
   if (loading) {
     return <p> Loading..</p>;

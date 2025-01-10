@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signInUser } from "./signInSlice";
-// import "./signIn.css";
+import "./signIn.css";
+
+import { loadUserProfile } from "../profile/profileSlice";
 
 // composant pour le forumulaire de connexion
 // dépend de signInSlice pour : state et actions
@@ -19,9 +21,11 @@ const SignInForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     localStorage.removeItem("token");
-    dispatch(signInUser({ email, password })) // est appelé lors de la soumission du formulaire
+    dispatch(signInUser({ email, password })) // est appelé lors de la soumission du formulaire //fait l'authenti à l'api
       //load
       .then((data) => {
+        const token = localStorage.getItem("token"); //récupération du token dans le local storage
+        dispatch(loadUserProfile(token)); //chargement du profil dans SignInForm
         console.log("Email:", email);
         console.log("Password:", password);
         console.log("Login OK", data);
