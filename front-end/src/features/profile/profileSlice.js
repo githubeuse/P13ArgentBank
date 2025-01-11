@@ -17,15 +17,25 @@ export const loadUserProfile = createAsyncThunk(
 const profileSlice = createSlice({
   name: "profile",
   initialState: {
-    user: null,
+    // user: null, // old
+    user: {
+      firstName: "",
+      lastName: "",
+    },
     loading: false,
     error: null,
   },
   reducers: {
     clearProfile: (state) => {
-      state.user = null;
+      // state.user = null; // old
+      state.user.firstName = "";
+      state.user.lastName = "";
       state.error = null;
     },
+    updateName: (state, action) => { // new
+      state.user.firstName = action.payload.firstName;
+      state.user.lastName = action.payload.lastName;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -35,7 +45,9 @@ const profileSlice = createSlice({
       })
       .addCase(loadUserProfile.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.body;
+        // state.user = action.payload.body; // old
+        state.user.firstName = action.payload.body.firstName;
+        state.user.lastName = action.payload.body.lastName;
       })
       .addCase(loadUserProfile.rejected, (state, action) => {
         state.loading = false;
@@ -44,6 +56,6 @@ const profileSlice = createSlice({
   },
 });
 
-export const { clearProfile } = profileSlice.actions;
+export const { clearProfile, updateName } = profileSlice.actions;
 
 export default profileSlice.reducer;

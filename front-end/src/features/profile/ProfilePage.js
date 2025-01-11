@@ -1,6 +1,7 @@
-// import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { updateName } from "./profileSlice";
 
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -13,12 +14,39 @@ import { userData, bankName } from "../../data/mockedData";
 import "./profile.css";
 
 const ProfilePage = () => {
-  // const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state) => state.profile);
   const token = useSelector((state) => state.signIn.token);
+  const dispatch = useDispatch();
+
+  // const handleSubmit = (firstName, lastName) => {
+  //   dispatch(updateName({ firstName, lastName }));
+  // };
+
+  const handleSubmit = async (firstName, lastName) => {
+    try {
+      const response = await fetch("http://localhost:3001/api/v1/user/profile", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ firstName, lastName }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update profile");
+      }
+
+      const data = await response.json();
+      dispatch(updateName({ firstName: data.body.firstName, lastName: data.body.lastName }));
+    } catch (error) {
+      console.error("Error updating profile:", error);
+    }
+  };
 
   if (loading) {
-    return <p> Loading..</p>;
+    return <p> Loading..</p>
+    ;
   }
 
   if (error) {
@@ -37,7 +65,9 @@ const ProfilePage = () => {
           <ProfileWelcome
             className="profileWelcome"
             name={`${user?.firstName} ${user?.lastName}`}
-            onEditName={() => alert("Edit name functionality here")}
+            currentFirsttName={user?.firstName}
+            currentLastName={user?.lastName}
+            onSubmit={handleSubmit}
           />
           {/* new */}
           <section className="accounts">
