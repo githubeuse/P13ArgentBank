@@ -21,6 +21,8 @@ const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) =
     const finalFirstName = firstName || currentFirstName;
     onSubmit(finalFirstName, finalLastName);
     setIsEditing(false);
+    setFirstName("");
+    setLastName("");
   };
 
   return (
