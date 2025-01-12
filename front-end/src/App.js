@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import IndexPage from "./pages/IndexPage";
-import SignInPage from "./features/signIn/SignInPage";
-import ProfilePage from "./features/profile/ProfilePage";
+import IndexPage from "./pages/index/IndexPage";
+import SignInPage from "./pages/signIn/SignInPage";
+import ProfilePage from "./pages/profile/ProfilePage";
 
 const App = () => {
   return (

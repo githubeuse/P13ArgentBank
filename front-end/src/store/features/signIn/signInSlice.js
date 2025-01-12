@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { SignIn } from "../../services/apiService";
+import { SignIn } from "../../../services/apiService";
 
 // Gère l'état global de l'authentification
 // reçoit les données de apiService

@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { updateName } from "./profileSlice";
+import { updateName } from "../../store/features/profile/profileSlice";
 
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
-import ProfileWelcome from "./ProfileWelcome";
+import ProfileWelcome from "../../store/features/profile/ProfileWelcome";
 import AccountCard from "../../components/AccountCard/AccountCard";
 
 import { userData, bankName } from "../../data/mockedData";

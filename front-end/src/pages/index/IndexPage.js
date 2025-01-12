@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import HeroSection from "../components/HeroSection/HeroSection";
-import FeatureCard from "../components/FeatureCard/FeatureCard";
-import iconChat from "../assets/icon-chat.png";
-import iconMoney from "../assets/icon-money.png";
-import iconSecurity from "../assets/icon-security.png";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import HeroSection from "../../components/HeroSection/HeroSection";
+import FeatureCard from "../../components/FeatureCard/FeatureCard";
+import iconChat from "../../assets/icon-chat.png";
+import iconMoney from "../../assets/icon-money.png";
+import iconSecurity from "../../assets/icon-security.png";
 import "./IndexPage.css";
 
 const IndexPage = () => {

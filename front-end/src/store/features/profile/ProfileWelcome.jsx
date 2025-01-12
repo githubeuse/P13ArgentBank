@@ -11,6 +11,8 @@ const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) =
 
   const handleCancelClick = () => {
     setIsEditing(false);
+    setFirstName("");
+    setLastName("");
   };
 
   const handleSubmit = (e) => {

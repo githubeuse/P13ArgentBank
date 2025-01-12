@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signInUser } from "./signInSlice";
-import "./signIn.css";
+import "../../../pages/signIn/signIn.css";
 
 import { loadUserProfile } from "../profile/profileSlice";
 

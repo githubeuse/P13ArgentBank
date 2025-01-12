@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import { logout } from "../../features/signIn/signInSlice";
+import { logout } from "../../store/features/signIn/signInSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
