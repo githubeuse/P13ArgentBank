@@ -18,10 +18,6 @@ const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) =
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!firstName || !lastName) {
-      setIsEditing(false);
-      return;
-    }
     const finalLastName = lastName || currentLastName;
     const finalFirstName = firstName || currentFirstName;
     onSubmit(finalFirstName, finalLastName);
@@ -62,7 +58,7 @@ const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) =
               />
             </div>
             <button className="save-button" type="submit">Save</button>
-            <button className="cancel-button" type="button" onClick={handleCancelClick}>
+            <button className="button" type="button" onClick={handleCancelClick}>
               Cancel
             </button>
           </form>
