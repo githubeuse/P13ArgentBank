@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
+import "../../../pages/profile/profile.css";
 
 const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -17,6 +18,10 @@ const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) =
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!firstName || !lastName) {
+      setIsEditing(false);
+      return;
+    }
     const finalLastName = lastName || currentLastName;
     const finalFirstName = firstName || currentFirstName;
     onSubmit(finalFirstName, finalLastName);
@@ -38,7 +43,7 @@ const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) =
       {isEditing && (
         <div className="edit-form">
           <form onSubmit={handleSubmit}>
-            <div>
+            <div className="firstNameDiv">
               <label htmlFor="firstName">First Name</label>
               <input
                 type="text"
@@ -47,7 +52,7 @@ const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) =
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
-            <div>
+            <div className="lastNameDiv">
               <label htmlFor="lastName">Last Name</label>
               <input
                 type="text"
@@ -56,8 +61,8 @@ const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) =
                 onChange={(e) => setLastName(e.target.value)}
               />
             </div>
-            <button type="submit">Save</button>
-            <button type="button" onClick={handleCancelClick}>
+            <button className="save-button" type="submit">Save</button>
+            <button className="cancel-button" type="button" onClick={handleCancelClick}>
               Cancel
             </button>
           </form>
