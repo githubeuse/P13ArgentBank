@@ -65,7 +65,7 @@ const ProfilePage = () => {
           <ProfileWelcome
             className="profileWelcome"
             name={`${user?.firstName} ${user?.lastName}`}
-            currentFirsttName={user?.firstName}
+            currentFirstName={user?.firstName}
             currentLastName={user?.lastName}
             onSubmit={handleSubmit}
           />

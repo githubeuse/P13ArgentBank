@@ -58,7 +58,7 @@ const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) =
               />
             </div>
             <button className="save-button" type="submit">Save</button>
-            <button className="button" type="button" onClick={handleCancelClick}>
+            <button className="cancel-button" type="button" onClick={handleCancelClick}>
               Cancel
             </button>
           </form>
