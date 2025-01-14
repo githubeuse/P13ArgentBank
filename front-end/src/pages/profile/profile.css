@@ -16,32 +16,48 @@ h1 {
   width: 100%;
 }
 
-.edit-button,
-.cancel-button,
-.save-button {
+.edit-button {
   font-weight: bold;
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
-  padding: 10px;
   margin-bottom: 2rem;
 }
 
-.edit-form{
+.edit-button {
+  padding: 10px;
+}
+
+.cancel-button,
+.save-button {
+  width: 80px;
+  padding: 5px 10px;
+  border-color: #00bc77;
+  color: #00bc77;
+  font-weight: 600;
+}
+
+.edit-form {
   margin: 40px;
   margin-top: 0px;
 }
 
-.firstNameDiv, .lastNameDiv{
-  margin-bottom: 10px;
-  color: white;
+.divInput {
+  display: flex;
+  gap: 20px;
 }
 
-.firstNameDiv label, 
-.lastNameDiv label{
-  margin-right: 10px;
+.divInput input {
+  height: 26px;
 }
 
-.save-button {
-  margin-right: 10px;
+.firstNameDiv,
+.lastNameDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.firstNameDiv {
+  align-items: flex-end;
 }

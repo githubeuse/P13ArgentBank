@@ -40,6 +40,10 @@
         {
             "filePath": "front-end\\src\\features\\profile",
             "group": "master"
+        },
+        {
+            "filePath": "front-end\\src\\App.js",
+            "group": "master"
         }
     ],
     "favorites.groups": [

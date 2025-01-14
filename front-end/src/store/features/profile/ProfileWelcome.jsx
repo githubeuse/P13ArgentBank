@@ -1,10 +1,16 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import "../../../pages/profile/profile.css";
 
-const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) => {
+const ProfileWelcome = ({
+  name,
+  currentFirstName,
+  currentLastName,
+  onSubmit,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -31,36 +37,46 @@ const ProfileWelcome = ({ name, currentFirstName, currentLastName, onSubmit }) =
       <h1>
         Welcome back
         <br />
-          {name || "User"}!
+        {name || "User"}!
       </h1>
-      <button className="edit-button" onClick={handleEditClick}>
-        Edit Name
-      </button>
+      {!isEditing && (
+        <button className="edit-button" onClick={handleEditClick}>
+          Edit Name
+        </button>
+      )}
       {isEditing && (
         <div className="edit-form">
           <form onSubmit={handleSubmit}>
-            <div className="firstNameDiv">
-              <label htmlFor="firstName">First Name</label>
-              <input
-                type="text"
-                id="firstName"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
+            <div className="divInput">
+              <div className="firstNameDiv">
+                <input
+                  type="text"
+                  id="firstName"
+                  value={firstName}
+                  defaultValue={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+                <button className="save-button" type="submit">
+                  Save
+                </button>
+              </div>
+              <div className="lastNameDiv">
+                <input
+                  type="text"
+                  id="lastName"
+                  value={lastName}
+                  defaultValue={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+                <button
+                  className="cancel-button"
+                  type="button"
+                  onClick={handleCancelClick}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
-            <div className="lastNameDiv">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                type="text"
-                id="lastName"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-            </div>
-            <button className="save-button" type="submit">Save</button>
-            <button className="cancel-button" type="button" onClick={handleCancelClick}>
-              Cancel
-            </button>
           </form>
         </div>
       )}
