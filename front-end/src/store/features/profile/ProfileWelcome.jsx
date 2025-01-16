@@ -53,6 +53,7 @@ const ProfileWelcome = ({
                   type="text"
                   id="firstName"
                   value={firstName}
+                  placeholder={currentFirstName}
                   defaultValue={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                 />
@@ -65,6 +66,7 @@ const ProfileWelcome = ({
                   type="text"
                   id="lastName"
                   value={lastName}
+                  placeholder={currentLastName}
                   defaultValue={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                 />
