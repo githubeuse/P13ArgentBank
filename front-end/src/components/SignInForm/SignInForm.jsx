@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { signInUser } from "./signInSlice";
-import "../../../pages/signIn/signIn.css";
+import { signInUser } from "../../store/features/signIn/signInSlice";
+import { loadUserProfile } from "../../store/features/profile/profileSlice";
 
-import { loadUserProfile } from "../profile/profileSlice";
+import "../../pages/signIn/signIn.css";
 
 // composant pour le forumulaire de connexion
 // dépend de signInSlice pour : state et actions

@@ -6,7 +6,7 @@ import { updateName } from "../../store/features/profile/profileSlice";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
-import ProfileWelcome from "../../store/features/profile/ProfileWelcome";
+import ProfileWelcome from "../../components/ProfileWelcome/ProfileWelcome";
 import AccountCard from "../../components/AccountCard/AccountCard";
 
 import { userData, bankName } from "../../data/mockedData";

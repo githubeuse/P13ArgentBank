@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../../pages/profile/profile.css";
+import "../../pages/profile/profile.css";
 
 const ProfileWelcome = ({
   name,

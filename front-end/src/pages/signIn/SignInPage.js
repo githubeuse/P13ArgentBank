@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import SignInForm from "../../store/features/signIn/SignInForm";
+import SignInForm from "../../components/SignInForm/SignInForm";
 import "./signIn.css";
 
 // Page complète de connexion
