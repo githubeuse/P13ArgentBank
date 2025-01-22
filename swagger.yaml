@@ -67,6 +67,7 @@ paths:
       description: API for fetching a user profile
       parameters:
         - in: header
+          type: string
           name: Authorization
           description: Attach Bearer JWT token
           required: true
@@ -90,6 +91,7 @@ paths:
       description: API for updating a user profile
       parameters:
         - in: header
+          type: string
           name: Authorization
           description: Attach Bearer JWT token
           required: true
@@ -108,6 +110,92 @@ paths:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  /user/{accountId}/transactions:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - User Module
+      summary: Get User Transactions
+      description: API for fetching transactions of a user account
+      parameters:
+        - in: path
+          name: accountId
+          required: true
+          type: string
+          description: ID of the user account
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transactions fetched successfully
+          schema:
+            $ref: '#/definitions/TransactionsArrayResponse'
+        '400':
+          description: Invalid account ID
+        '500':
+          description: Internal Server Error
+  /user/transactions/{transactionId}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - User Module
+      summary: Get Transaction Details
+      description: API for fetching details of a specific transaction
+      parameters:
+        - in: path
+          name: transactionId
+          required: true
+          type: string
+          description: ID of the transaction
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transaction details fetched successfully
+          schema:
+            $ref: '#/definitions/SingleTransactionResponse'
+        '400':
+          description: Invalid transaction ID
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+        - Bearer: []
+      tags:
+        - User Module
+      summary: Update Transaction Details
+      description: API for updating details of a specific transaction
+      parameters:
+        - in: path
+          name: transactionId
+          required: true
+          type: string
+          description: ID of the transaction
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              note:
+                type: string
+                description: Note for the transaction
+              category:
+                type: string
+                description: Category of the transaction
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transaction updated successfully
+          schema:
+            $ref: '#/definitions/SingleTransactionResponse'
+        '400':
+          description: Invalid transaction ID or fields
         '500':
           description: Internal Server Error
 securityDefinitions:
@@ -163,4 +251,30 @@ definitions:
       firstName:
         type: string
       lastName:
+        type: string
+  TransactionsArrayResponse:
+    type: object
+    properties:
+      transactions:
+        type: array
+        items:
+          $ref: '#/definitions/Transaction'
+  SingleTransactionResponse:
+    type: object
+    properties:
+      transaction:
+        $ref: '#/definitions/Transaction'
+  Transaction:
+    type: object
+    properties:
+      id:
+        type: string
+      amount:
+        type: number
+      date:
+        type: string
+        format: date-time
+      note:
+        type: string
+      category:
         type: string
