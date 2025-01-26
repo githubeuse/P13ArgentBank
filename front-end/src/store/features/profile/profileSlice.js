@@ -5,7 +5,6 @@ export const loadUserProfile = createAsyncThunk(
   "profile/loadUserProfile",
   async (token, thunkAPI) => {
     try {
-      console.log("token envoyé à fetchUserProfile:", token);
       const data = await fetchUserProfile(token);
       return data;
     } catch (error) {

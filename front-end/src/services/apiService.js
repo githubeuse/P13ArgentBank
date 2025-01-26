@@ -30,7 +30,6 @@ export const SignIn = async (email, password) => {
 
 // new ci dessous
 export const fetchUserProfile = async (token) => {
-  console.log("token:", token);
   try {
     const response = await fetch(`${API_BASE_URL}/api/v1/user/profile`, {
       method: "POST",
@@ -43,7 +42,6 @@ export const fetchUserProfile = async (token) => {
       throw new Error(errorData.message || "Failed to fetch profile");
     }
     const data = await response.json();
-    console.log("data:", data);
     return data;
   } catch (error) {
     console.error("Error fetching user profile", error.message);

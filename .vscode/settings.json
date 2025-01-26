@@ -56,6 +56,14 @@
         {
             "filePath": "front-end\\src\\store\\features\\profile\\profileSlice.js",
             "group": "master"
+        },
+        {
+            "filePath": "front-end\\src\\components\\ProfileWelcome\\ProfileWelcome.jsx",
+            "group": "master"
+        },
+        {
+            "filePath": "front-end\\src\\pages\\profile\\ProfilePage.js",
+            "group": "master"
         }
     ],
     "favorites.groups": [

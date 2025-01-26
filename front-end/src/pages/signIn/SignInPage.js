@@ -12,7 +12,6 @@ import "./signIn.css";
 
 const SignInPage = () => {
   const token = useSelector((state) => state.signIn.token);
-  console.log("Token in SignInPage:", token);
   if (token) {
     return <Navigate to="/profile" />;
   }

@@ -11,7 +11,6 @@ export const signInUser = createAsyncThunk(
   async ({ email, password }, thunkApi) => {
     try {
       const response = await SignIn(email, password); // appel de SignIn depuis apiService et maj selon le résultat
-      // console.log("API Response:", response);
       return response;
     } catch (error) {
       return thunkApi.rejectWithValue(error.response.data);
@@ -33,7 +32,6 @@ const signInSlice = createSlice({
       // réinit l'état utilisateur et l'état token
       state.user = null;
       state.token = null;
-      console.log("Token après suppression :", localStorage.getItem("token"));
     },
   },
   extraReducers: (builder) => {
@@ -45,7 +43,6 @@ const signInSlice = createSlice({
       })
       .addCase(signInUser.fulfilled, (state, action) => {
         // stocke les données utilisateur et token
-        // console.log("Action payload:", action.payload);
         state.loading = false;
         state.user = action.payload.user;
         state.token = action.payload.body.token;

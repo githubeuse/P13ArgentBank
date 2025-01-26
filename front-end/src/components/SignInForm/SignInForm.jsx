@@ -26,9 +26,6 @@ const SignInForm = () => {
       .then((data) => {
         const token = localStorage.getItem("token"); //récupération du token dans le local storage
         dispatch(loadUserProfile(token)); //chargement du profil dans SignInForm
-        console.log("Email:", email);
-        console.log("Password:", password);
-        console.log("Login OK", data);
       })
       .catch((error) => {
         console.log("Erreur au login", error);
