@@ -1,6 +1,6 @@
 header {
   background-color: #fff;
-  padding: 20px 40px;
+  /* padding: 20px 5px; */
   color: black;
 }
 
@@ -28,9 +28,14 @@ header {
   font-family: "Arial", sans-serif;
 }
 
-.logo h1 {
+.argentBankLogo{
+  width: 200px;
+}
+
+/* .logo h1 {
   font-size: 1.5em;
   letter-spacing: 0.2px;
+  margin-block: 0;
 }
 
 .first-word-logo {
@@ -39,7 +44,7 @@ header {
 
 .second-word-logo {
   color: #055f3c;
-}
+} */
 .sign-in,
 .user-button {
   text-decoration: none;

@@ -1,8 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import "./Header.css";
+
 import { logout } from "../../store/features/signIn/signInSlice";
+
+import "./Header.css";
+
+import argentBankLogo from "../../assets/argentBankLogo.png";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -18,10 +22,11 @@ const Header = () => {
     <header>
       <nav className="main-nav">
         <Link className="logo" to="/">
-          <h1>
+          <img src={argentBankLogo} alt="Argent Bank Logo" className="argentBankLogo"/>
+          {/* <h1>
             <span className="first-word-logo">ARGENT</span>
             <span className="second-word-logo">BANK</span>
-          </h1>
+          </h1> */}
         </Link>
         {token && user ? (
           <div>

@@ -44,6 +44,18 @@
         {
             "filePath": "front-end\\src\\App.js",
             "group": "master"
+        },
+        {
+            "filePath": "front-end\\src\\components\\SignInForm\\SignInForm.jsx",
+            "group": "master"
+        },
+        {
+            "filePath": "front-end\\src\\store\\features\\signIn\\signInSlice.js",
+            "group": "master"
+        },
+        {
+            "filePath": "front-end\\src\\store\\features\\profile\\profileSlice.js",
+            "group": "master"
         }
     ],
     "favorites.groups": [

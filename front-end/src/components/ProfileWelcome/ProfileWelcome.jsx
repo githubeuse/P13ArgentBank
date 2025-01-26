@@ -54,7 +54,6 @@ const ProfileWelcome = ({
                   id="firstName"
                   value={firstName}
                   placeholder={currentFirstName}
-                  defaultValue={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                 />
                 <button className="save-button" type="submit">
@@ -67,7 +66,6 @@ const ProfileWelcome = ({
                   id="lastName"
                   value={lastName}
                   placeholder={currentLastName}
-                  defaultValue={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                 />
                 <button
